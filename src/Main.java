@@ -1,43 +1,40 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * AquaGuardian - Clase principal.
+ * AquaGuardian - Archivo principal de la aplicación.
  * Plataforma educativa de conservación marina.
- * Primera versión: registro de usuarios y consulta de especies.
+ * Primera versión (consola): registro de usuarios y consulta de especies.
  */
 public class Main {
 
-    // Lista de usuarios registrados
-    static ArrayList<String> usuarios = new ArrayList<>();
-
-    // Especies de ejemplo (más adelante vendrán de una base de datos)
-    static String[] especies = {
-        "Tortuga marina - Océanos tropicales",
-        "Ballena jorobada - Océanos templados y fríos",
-        "Pez payaso - Arrecifes de coral"
-    };
-
-    // Registra un usuario nuevo
-    static void registrarUsuario(String nombre) {
-        usuarios.add(nombre);
-        System.out.println("Usuario " + nombre + " registrado.");
-    }
-
-    // Muestra las especies disponibles
-    static void listarEspecies() {
-        System.out.println("Especies marinas:");
-        for (String e : especies) {
-            System.out.println("- " + e);
-        }
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bienvenido a AquaGuardian");
+        ServicioUsuarios servicioUsuarios = new ServicioUsuarios();
+        ServicioEspecies servicioEspecies = new ServicioEspecies();
+
+        System.out.println("=== Bienvenido a AquaGuardian ===");
+
+        // Funcionalidad 1: registro de usuario
         System.out.print("Nombre: ");
-        registrarUsuario(sc.nextLine());
-        listarEspecies();
+        String nombre = sc.nextLine();
+        System.out.print("Correo: ");
+        String correo = sc.nextLine();
+        servicioUsuarios.registrar(nombre, correo, "USUARIO");
+        System.out.println("Usuario registrado: " + nombre);
+
+        // Funcionalidad 2: consulta de especies
+        System.out.println("\nEspecies marinas disponibles:");
+        for (Especie e : servicioEspecies.listar()) {
+            System.out.println("- " + e.getNombre() + " (" + e.getHabitat() + ")");
+        }
+
+        System.out.print("\nEscribe el nombre de una especie para ver su detalle: ");
+        Especie encontrada = servicioEspecies.buscarPorNombre(sc.nextLine());
+        if (encontrada != null) {
+            System.out.println(encontrada.getNombre() + ": " + encontrada.getDescripcion());
+        } else {
+            System.out.println("Especie no encontrada.");
+        }
         sc.close();
     }
 }
