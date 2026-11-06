@@ -13,8 +13,9 @@ La información sobre especies y hábitats marinos está dispersa. AquaGuardian 
 - Acceso a noticias y eventos
 
 ## Integrantes del equipo
-- Alexander Molina (alexanderclaer)
-- juanpapita69
+- Alexander Molina 
+- David Saavedra
+- Juan Cortes
 
 ## Tecnologías seleccionadas
 - Java
