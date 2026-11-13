@@ -104,7 +104,7 @@ javac src/*.java && java -cp src Main
 - Juan Cortes
 
 ## Estado actual del proyecto
-Segunda entrega: la página principal funciona con contenido de ejemplo, aplica tres patrones de diseño y cuenta con 29 pruebas automatizadas. El código de la primera entrega en Java se conserva y aún no está integrado con la página web.
+Segunda entrega: la página principal funciona con contenido de ejemplo, aplica dos patrones de diseño y cuenta con 29 pruebas automatizadas. El código de la primera entrega en Java se conserva y aún no está integrado con la página web.
 
 ## Próximos avances
 - Registro e inicio de sesión y roles (módulo "Acceso al sistema").
