@@ -36,12 +36,12 @@ AquaGuardian es una plataforma web educativa de conservación marina. Centraliza
 - IDE: IntelliJ IDEA / VS Code
 - Gestión: Jira / Trello
 
-## 6. Patrones de diseño propuestos (para entregas posteriores)
-- **Singleton:** servicio de configuración con una única instancia.
-- **Factory Method:** creación de contenido (especie, noticia, evento).
-- **Strategy:** búsqueda y ordenamiento por nombre o fecha.
+## 6. Patrones de diseño (implementados en la segunda entrega)
+- **Singleton:** repositorio de contenido con una única instancia (`docs/patrones/singleton.md`).
+- **Factory Method:** creación de contenido (animal, noticia, evento) (`docs/patrones/factory-method.md`).
+- **Strategy:** ordenamiento por nombre, fecha o edad (`docs/patrones/strategy.md`).
 
 ## 7. Organización del desarrollo
 - Trabajo en equipo con Git y GitHub: cada cambio se registra con un commit.
-- Estructura del repositorio: `docs/` (documentación), `src/` (código) y `tests/` (pruebas).
+- Estructura del repositorio: `docs/` (documentación), `src/` (código Java de la primera entrega), `frontend/` (página web) y `tests/` (pruebas).
 - El desarrollo avanza por módulos: primero usuarios y especies, luego noticias, eventos y el panel de administración.
