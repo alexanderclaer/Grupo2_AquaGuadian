@@ -1,0 +1,12 @@
+{
+  "name": "aquaguardian",
+  "version": "0.2.0",
+  "description": "AquaGuardian: plataforma web educativa de conservación marina (Grupo 2).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx serve frontend",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}
