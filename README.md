@@ -11,11 +11,11 @@ La información sobre especies y hábitats marinos está dispersa. AquaGuardian 
 
 ## Alcance
 - **Incluido hasta ahora:** página principal con navegación, sección de animales, sección de noticias y eventos, y la estructura reservada del panel de administración.
-- **Fuera del alcance de esta entrega:** registro e inicio de sesión, operaciones del administrador (crear, editar, eliminar), mapa, base de datos y backend. Están planificados para las siguientes entregas.
+- **Fuera del alcance de esta entrega:** registro e inicio de sesión, operaciones del administrador (crear, editar, eliminar), base de datos y backend. Están planificados para las siguientes entregas.
 
 ## Funcionalidades implementadas
 **Primera entrega (consola, Java)**
-- Registro de usuarios y consulta de especies.
+- Idea principal de la pagina. Registro de usuarios y consulta de especies. todo sin funcionalidades unicamente visual.
 
 **Segunda entrega (página web, `frontend/`)**
 - Página de **inicio**: presentación del parque, "El parque en números" (calculado desde los datos), accesos a las secciones, vistas previas de animales y noticias, y misión.
@@ -62,7 +62,7 @@ Grupo2_AquaGuardian/
 ```
 
 ## Patrones y decisiones de construcción
-Se implementaron los tres patrones previstos en la documentación inicial. Están en el código y tienen pruebas automatizadas; cada uno tiene su documento con el problema, la justificación, los componentes y los beneficios.
+Se implementaron los tres patrones previstos en la documentación inicial (falta el segundo patron Favtory Method, que se implementara cuando se construyan las funciones de administrador y estas esten conectados a la base de datos). Están en el código y tienen pruebas automatizadas; cada uno tiene su documento con el problema, la justificación, los componentes y los beneficios.
 
 | Patrón | Dónde está | Qué resuelve |
 |---|---|---|
@@ -85,8 +85,8 @@ cd Grupo2_AquaGuadian
 ```
 
 **Página web.** Los módulos de JavaScript requieren un servidor local (no funcionan con doble clic):
-- En VS Code: instala la extensión **Live Server**, abre `frontend/index.html` y pulsa "Go Live"; o bien
-- con Node.js: `npx serve frontend` y abre la dirección que muestre.
+- En VS Code: Se instala la extensión **Live Server**, abre `frontend/index.html` y pulsa "Go Live"; o bien
+- con Node.js: `qnpx serve frontend` y abre la dirección que muestre.
 
 **Pruebas automatizadas** (Node.js 18 o superior):
 ```bash
@@ -110,4 +110,4 @@ Segunda entrega: la página principal funciona con contenido de ejemplo, aplica 
 - Registro e inicio de sesión y roles (módulo "Acceso al sistema").
 - Panel de administración con crear, editar y eliminar animales, noticias y eventos.
 - Backend con Spring Boot y base de datos PostgreSQL; reemplazar los datos de ejemplo por una API REST.
-- Mapa del parque, recursos educativos e imágenes.
+- Recursos educativos e imágenes.
