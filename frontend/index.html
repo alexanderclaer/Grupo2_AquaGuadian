@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AquaGuardian: conoce a los animales del parque marino, sus historias y las noticias y eventos de conservación.">
+  <title>AquaGuardian</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- Aviso que solo aparece si se abre el archivo con doble clic (file://). -->
+  <div id="aviso-servidor" class="aviso-servidor" hidden>
+    Para ver la página abre esta carpeta con un servidor local: en VS Code usa la extensión
+    <strong>Live Server</strong>, o ejecuta <code>npx serve frontend</code> en la raíz del repositorio.
+  </div>
+
+  <div id="zona-menu"></div>
+
+  <main id="contenido" tabindex="-1">
+    <noscript><p class="aviso aviso--error">Esta página necesita JavaScript para mostrar el contenido.</p></noscript>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__contenedor">
+      <p class="pie__marca">AQUAGUARDIAN</p>
+      <p>Aprender sobre el océano es el primer paso para protegerlo.</p>
+      <p class="pie__copia">© 2026 AquaGuardian · Grupo 2 · Universidad Manuela Beltrán</p>
+    </div>
+  </footer>
+
+  <script>
+    if (location.protocol === 'file:') document.getElementById('aviso-servidor').hidden = false;
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
