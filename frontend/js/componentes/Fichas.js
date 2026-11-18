@@ -2,7 +2,7 @@ import { h } from '../utilidades/dom.js';
 import { formatearFecha } from '../utilidades/fechas.js';
 import { icono } from '../utilidades/iconos.js';
 import { abrirDialogo } from './Dialogo.js';
-import { MarcadorAnimal } from './Marcador.js';
+import { MarcadorAnimal, MarcadorEvento, MarcadorNoticia } from './Marcador.js';
 import { InsigniaEstado } from './Tarjetas.js';
 
 function Dato(etiqueta, valor) {
@@ -45,7 +45,8 @@ export function abrirDetalleNoticia(noticia) {
   abrirDialogo((idTitulo) =>
     h(
       'div',
-      { clase: 'ficha ficha--texto' },
+      { clase: 'ficha' },
+      MarcadorNoticia(noticia),
       h(
         'div',
         { clase: 'ficha__cuerpo' },
@@ -64,7 +65,8 @@ export function abrirDetalleEvento(evento) {
   abrirDialogo((idTitulo) =>
     h(
       'div',
-      { clase: 'ficha ficha--texto' },
+      { clase: 'ficha' },
+      MarcadorEvento(evento),
       h(
         'div',
         { clase: 'ficha__cuerpo' },

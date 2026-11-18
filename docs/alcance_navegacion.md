@@ -1,17 +1,14 @@
-# Alcance implementado: navegación principal
+# Alcance de la navegación
 
-Según el diagrama UML, la navegación principal incluye:
-
-| Clase del UML | Implementación |
+| Vista | Implementación |
 |---|---|
-| `MenuPrincipal` | `frontend/js/componentes/MenuPrincipal.js` y `frontend/js/servicios/navegacion.js` |
-| `SeccionAnimales` | `frontend/js/componentes/SeccionAnimales.js` (listado, búsqueda, filtro, orden y ficha) |
-| `SeccionNoticiasEventos` | `frontend/js/componentes/SeccionNoticiasEventos.js` (noticias y eventos con búsqueda, filtro y orden) |
-| `PanelAdministrador` | `frontend/js/componentes/PanelAdministrador.js` (estructura reservada; el enlace permanece oculto) |
+| Menú y rutas | [MenuPrincipal.js](../frontend/js/componentes/MenuPrincipal.js) y [navegacion.js](../frontend/js/servicios/navegacion.js) |
+| Inicio | [SeccionInicio.js](../frontend/js/componentes/SeccionInicio.js) presenta el parque, calcula cifras desde el repositorio y muestra vistas previas |
+| Animales | [SeccionAnimales.js](../frontend/js/componentes/SeccionAnimales.js) permite buscar, filtrar, ordenar y abrir fichas |
+| Noticias y eventos | [SeccionNoticiasEventos.js](../frontend/js/componentes/SeccionNoticiasEventos.js) permite alternar listas, buscar, ordenar y abrir detalles. Las noticias admiten filtro por categoría |
+| Acceso de demostración | [SeccionAcceso.js](../frontend/js/componentes/SeccionAcceso.js) ofrece registro, inicio y cierre de sesión |
+| Administración | [PanelAdministrador.js](../frontend/js/componentes/PanelAdministrador.js) permite listar, agregar, editar y eliminar animales, eventos y noticias con el rol simulado `admin` |
 
-## Evolución
-- **Primera versión de la navegación (prototipo):** menú y vistas con contenido pendiente de integrar.
-- **Segunda entrega:** las vistas muestran contenido real de ejemplo (6 animales, 6 noticias y 4 eventos), con búsqueda, filtros y ordenamiento, y usan los patrones Singleton, Factory Method y Strategy.
+El catálogo inicial contiene 6 animales, 6 noticias y 4 eventos de ejemplo. Las rutas desconocidas y el acceso a `#administracion` sin una sesión simulada de rol `admin` llevan a Inicio. Consulta las [credenciales públicas de demostración](../README.md#acceso-de-demostración) y la [gestión del catálogo local](../README.md#gestión-del-catálogo-local). La simulación usa almacenamiento local y carece de seguridad de autenticación.
 
-## Pendiente
-Registro e inicio de sesión (módulo "Acceso al sistema"), operaciones de crear/editar/eliminar del administrador y conexión con el backend. La variable `esAdministrador` de `frontend/js/config.js` es solo una condición temporal de interfaz, no un mecanismo de seguridad.
+Consulta el [diagrama de navegación de usuario y administrador](diagramas/Diagrama_Navegacion_Usuario_Administrador.png).

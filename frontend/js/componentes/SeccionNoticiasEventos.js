@@ -12,13 +12,13 @@ function panelNoticias(repositorio) {
   const noticias = repositorio.obtenerNoticias();
   const categorias = [...new Set(noticias.map((noticia) => noticia.categoria))].sort((a, b) => a.localeCompare(b, 'es'));
   const organizador = new OrganizadorLista(ORDEN_RECIENTES);
-  const filtros = { texto: '', categoria: 'todas' };
+  const filtros = { texto: '', categoria: null };
   const resultados = h('div');
   const contador = h('p', { clase: 'contador', 'aria-live': 'polite' });
 
   function actualizar() {
     let lista = filtrarPorTexto(noticias, filtros.texto, ['titulo', 'resumen', 'categoria']);
-    if (filtros.categoria !== 'todas') lista = lista.filter((noticia) => noticia.categoria === filtros.categoria);
+    if (filtros.categoria !== null) lista = lista.filter((noticia) => noticia.categoria === filtros.categoria);
     lista = organizador.organizar(lista);
     contador.textContent = `${lista.length} ${lista.length === 1 ? 'noticia' : 'noticias'}`;
     resultados.replaceChildren(
@@ -55,8 +55,8 @@ function panelNoticias(repositorio) {
       { clase: 'herramientas herramientas--fila' },
       Pestanas({
         etiqueta: 'Filtrar por categoría',
-        opciones: [{ valor: 'todas', etiqueta: 'Todas' }, ...categorias.map((c) => ({ valor: c, etiqueta: c }))],
-        valorInicial: 'todas',
+        opciones: [{ valor: null, etiqueta: 'Todas las categorías' }, ...categorias.map((c) => ({ valor: c, etiqueta: c }))],
+        valorInicial: null,
         alCambiar: (categoria) => {
           filtros.categoria = categoria;
           actualizar();

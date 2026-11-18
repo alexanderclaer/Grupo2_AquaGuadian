@@ -13,7 +13,7 @@ Hay un único conjunto de contenido del parque y debe existir una única fuente 
 - La clase `RepositorioContenido` guarda la instancia en un campo estático privado (`#instancia`).
 - El constructor exige una llave privada (`Symbol`), por lo que `new RepositorioContenido()` lanza un error.
 - La única forma de obtenerlo es `RepositorioContenido.obtenerInstancia()`.
-- Los métodos `obtenerAnimales()`, `obtenerNoticias()` y `obtenerEventos()` devuelven **copias**, así ninguna vista puede modificar el contenido por accidente.
+- Los métodos `obtenerAnimales()`, `obtenerNoticias()` y `obtenerEventos()` devuelven **copias superficiales de las listas**. Agregar o retirar elementos de una lista devuelta no altera la colección interna.
 - Si un registro es inválido, se omite y queda registrado en `obtenerErroresCarga()` (manejo de errores).
 
 ## Componentes involucrados
@@ -21,5 +21,5 @@ Hay un único conjunto de contenido del parque y debe existir una única fuente 
 
 ## Beneficios
 - Una sola fuente de datos coherente en toda la aplicación.
-- Cuando se conecte el backend (Spring Boot + PostgreSQL) solo cambia la forma de cargar los datos en este archivo; las vistas no se tocan.
+- Las vistas comparten la misma interfaz de consulta del repositorio.
 - Se puede probar de forma aislada (`reiniciarParaPruebas()`).

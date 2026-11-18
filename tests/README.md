@@ -1,6 +1,6 @@
 # Pruebas del proyecto
 
-Pruebas automatizadas de la lógica del frontend (modelos, patrones, búsqueda y navegación) con el ejecutor de pruebas integrado de Node.js. No requieren instalar dependencias.
+Pruebas automatizadas de la lógica del frontend con el ejecutor integrado de Node.js. No requieren instalar dependencias.
 
 ```bash
 npm test
@@ -13,3 +13,5 @@ npm test
 | `factory.test.js` | Que cada creador produzca el tipo correcto y rechace datos inválidos |
 | `strategy.test.js` | Estrategias de orden y cambio de estrategia en el contexto |
 | `utilidades.test.js` | Búsqueda sin tildes, navegación (incluido el acceso de administrador) y fechas |
+| `acceso-demo.test.js` | Registro, inicio y cierre de sesión, roles y aislamiento del almacenamiento |
+| `catalogo-local.test.js` | Creación, edición, eliminación, persistencia y manejo de errores del catálogo |

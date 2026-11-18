@@ -1,47 +1,30 @@
-# AquaGuardian - Descripción del proyecto
+# AquaGuardian · Descripción del proyecto
 
-Universidad Manuela Beltrán - Plan de Desarrollo de Software
+Universidad Manuela Beltrán · Plan de Desarrollo de Software
 
-## 1. Descripción general de la solución
-AquaGuardian es una plataforma web educativa de conservación marina. Centraliza información confiable sobre especies, hábitats, noticias y eventos, para informar y concientizar a la comunidad sobre la importancia y conservación de la vida marina. Cuenta con registro de usuarios y un rol de administrador que mantiene el contenido.
+## Necesidad y objetivo
 
-## 2. Necesidad identificada
-- Falta de acceso a información organizada y confiable sobre la vida marina.
-- Poca interacción educativa sobre especies y hábitats.
-- Necesidad de una experiencia visual e interactiva.
-- Promover el interés y la conciencia ambiental.
+La información sobre especies y hábitats marinos puede resultar dispersa. AquaGuardian busca facilitar su consulta y fomentar el interés por la conservación mediante una experiencia educativa adaptable a escritorio y móvil.
 
-## 3. Requerimientos
-**Funcionales:** registro e inicio de sesión (usuarios y administrador), exploración del parque virtual marino, consulta de especies, consulta de noticias y eventos, información detallada de especies y hábitats.
+## Alcance de la aplicación
 
-**No funcionales:** interfaz intuitiva, diseño responsivo, buen rendimiento, seguridad de usuarios y datos, compatibilidad con navegadores modernos, disponibilidad y mantenimiento continuo.
-
-## 4. Módulos o componentes principales y responsabilidades
-
-| Módulo | Responsabilidad |
+| Componente | Responsabilidad |
 |---|---|
-| Interfaz web (Frontend) | Mostrar la información al usuario (HTML, CSS, JavaScript). |
-| Controlador (Backend) | Recibir las peticiones y coordinar los servicios (Java, Spring Boot). |
-| Servicio de usuarios | Registro, inicio de sesión y roles (usuario y administrador). |
-| Servicio de especies y hábitats | Consulta y detalle de especies y hábitats. |
-| Servicio de noticias y eventos | Publicación y consulta de noticias y eventos. |
-| Base de datos | Almacenar toda la información (PostgreSQL). |
+| Inicio | Presentación del parque, cifras derivadas de los datos y acceso a las secciones |
+| Catálogo de animales | Búsqueda, filtro, ordenamiento y fichas con estado, hábitat e historia |
+| Noticias y eventos | Listas con búsqueda y orden, filtro de categorías para noticias y detalles en diálogo |
+| Datos y reglas | Modelos validados, repositorio local y estrategias de ordenamiento |
+| Acceso de demostración | Registro, inicio y cierre de sesión local con roles `usuario` y `admin` |
+| Panel de administración | Listado, creación, edición y eliminación de animales, eventos y noticias con el rol simulado `admin` |
 
-## 5. Tecnologías y herramientas
-- Lenguaje: Java
-- Framework: Spring Boot
-- Base de datos: PostgreSQL
-- Frontend: HTML, CSS, JavaScript
-- Control de versiones: Git y GitHub
-- IDE: IntelliJ IDEA / VS Code
-- Gestión: Jira / Trello
+## Tecnologías
 
-## 6. Patrones de diseño (implementados en la segunda entrega)
-- **Singleton:** repositorio de contenido con una única instancia (`docs/patrones/singleton.md`).
-- **Factory Method:** creación de contenido (animal, noticia, evento) (`docs/patrones/factory-method.md`).
-- **Strategy:** ordenamiento por nombre, fecha o edad (`docs/patrones/strategy.md`).
+La web utiliza HTML, CSS y JavaScript con módulos ES y datos locales de ejemplo. El navegador guarda las cuentas ficticias, la sesión y los cambios del catálogo. La autenticación real y el backend quedan pendientes. Las pruebas se ejecutan con Node.js y `node:test`. El código Java en `src/` conserva un prototipo de consola independiente.
 
-## 7. Organización del desarrollo
-- Trabajo en equipo con Git y GitHub: cada cambio se registra con un commit.
-- Estructura del repositorio: `docs/` (documentación), `src/` (código Java de la primera entrega), `frontend/` (página web) y `tests/` (pruebas).
-- El desarrollo avanza por módulos: primero usuarios y especies, luego noticias, eventos y el panel de administración.
+## Patrones y recursos
+
+- [Singleton](patrones/singleton.md) centraliza el contenido que comparten las vistas.
+- [Factory Method](patrones/factory-method.md) delega la creación de cada tipo de contenido.
+- [Strategy](patrones/strategy.md) permite cambiar el criterio de ordenamiento.
+
+Consulta el [alcance de navegación](alcance_navegacion.md), los [diagramas de patrones](diagramas/patrones.md) y el [README](../README.md).

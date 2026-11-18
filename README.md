@@ -1,113 +1,111 @@
-# AquaGuardian — Grupo 2
+# AquaGuardian · Grupo 2
 
-## Descripción
-AquaGuardian es una plataforma web educativa de conservación marina. Centraliza información sobre los animales de un parque marino, sus noticias y sus eventos para informar y concientizar sobre la importancia de cuidar la vida marina.
+AquaGuardian es una aplicación web educativa sobre conservación marina. Presenta los animales, las noticias y los eventos de un parque marino de ejemplo para la entrega universitaria del 18 de noviembre de 2026.
 
-## Objetivo
-Concientizar e informar sobre la importancia y conservación de la vida marina, facilitando el acceso a información organizada y confiable.
+## Problema y objetivo
 
-## Problema que busca resolver
-La información sobre especies y hábitats marinos está dispersa. AquaGuardian la centraliza para facilitar el aprendizaje y promover la conciencia ambiental.
-
-## Alcance
-- **Incluido hasta ahora:** página principal con navegación, sección de animales, sección de noticias y eventos, y la estructura reservada del panel de administración.
-- **Fuera del alcance de esta entrega:** registro e inicio de sesión, operaciones del administrador (crear, editar, eliminar), base de datos y backend. Están planificados para las siguientes entregas.
+La información sobre especies y hábitats marinos puede estar dispersa y ser difícil de explorar. AquaGuardian reúne fichas de especies y publicaciones en una interfaz de consulta que facilita el aprendizaje y fomenta el cuidado de la vida marina.
 
 ## Funcionalidades implementadas
-**Primera entrega (consola, Java)**
-- Idea principal de la pagina. Registro de usuarios y consulta de especies. todo sin funcionalidades unicamente visual.
 
-**Segunda entrega (página web, `frontend/`)**
-- Página de **inicio**: presentación del parque, "El parque en números" (calculado desde los datos), accesos a las secciones, vistas previas de animales y noticias, y misión.
-- Sección **Animales**: listado, búsqueda por nombre/especie/zona, filtro por estado de salud, ordenamiento (nombre o edad) y ficha detallada de cada animal.
-- Sección **Noticias y eventos**: pestañas Noticias / Eventos, búsqueda, filtro por categoría, ordenamiento por fecha o título y ventana de detalle. Los eventos se marcan como "Próximo" o "Finalizado".
-- **Menú principal** responsivo con acceso al panel de administración oculto (solo para el rol administrador).
-- Validaciones de datos y manejo de errores: los registros inválidos se omiten y se informan sin romper la página.
-- Accesibilidad básica: navegación con teclado, enlace "saltar al contenido", etiquetas ARIA y ventanas modales nativas.
-- Por ahora el diseño **no usa imágenes**: se emplean marcadores de color con iniciales.
+- **Inicio** con presentación del parque, estadísticas calculadas desde el repositorio y accesos a animales y publicaciones.
+- **Animales** con búsqueda por nombre, especie o zona, filtro por estado y orden por nombre o edad. Las fichas muestran hábitat, conservación, situación actual e historia.
+- **Noticias y eventos** en pestañas. Las noticias se pueden buscar por título, resumen o categoría y filtrar por categoría. Los eventos se pueden buscar por nombre, descripción o lugar y muestran si están próximos o finalizados. Ambas listas se pueden ordenar por nombre o fecha y abrir en detalle.
+- **Interfaz adaptable** con menú móvil, enlace para saltar al contenido y diálogos nativos. Las fotos locales representan especies, incluyen texto alternativo cuando aportan información y muestran su autor, fuente y licencia. Los marcadores visuales cubren imágenes ausentes o fallidas.
+- **Acceso de demostración** con registro, inicio y cierre de sesión. El rol simulado `admin` puede gestionar animales, eventos y noticias desde el panel.
 
-## Tecnologías utilizadas
-- HTML, CSS y JavaScript (módulos ES, sin dependencias externas) para la interfaz
-- Java para la primera versión de consola (`src/`)
-- Node.js (solo para ejecutar las pruebas automatizadas)
-- Git y GitHub
-- Previstas para próximas entregas: Spring Boot, PostgreSQL
+## Tecnologías y arquitectura
 
-## Estructura actual del proyecto
-```
-Grupo2_AquaGuardian/
-├── README.md
-├── package.json
-├── .gitignore
-├── src/                          # Primera entrega: aplicación de consola en Java
-│   ├── Main.java
-│   ├── Usuario.java · ServicioUsuarios.java
-│   └── Especie.java · ServicioEspecies.java
-├── frontend/                     # Segunda entrega: página web
-│   ├── index.html
-│   ├── css/styles.css
-│   └── js/
-│       ├── main.js               # Punto de entrada y navegación
-│       ├── config.js
-│       ├── modelos/              # Animal, Noticia, Evento (según el UML)
-│       ├── servicios/            # Patrones, repositorio, búsqueda, datos, navegación
-│       ├── componentes/          # Menú, secciones, tarjetas, fichas, controles
-│       └── utilidades/           # DOM, íconos, fechas, validaciones, errores
-├── tests/                        # Pruebas automatizadas (npm test)
-└── docs/
-    ├── descripcion_proyecto.md
-    ├── alcance_navegacion.md
-    ├── patrones/                 # singleton.md · factory-method.md · strategy.md
-    └── diagramas/                # Casos de uso, arquitectura, clases UML y patrones
-```
+HTML, CSS y JavaScript con módulos ES conforman la aplicación web estática. Node.js 18 o superior ejecuta las pruebas con `node:test`. El prototipo de consola en Java se conserva como aplicación independiente.
 
-## Patrones y decisiones de construcción
-Se implementaron los tres patrones previstos en la documentación inicial (falta el segundo patron Favtory Method, que se implementara cuando se construyan las funciones de administrador y estas esten conectados a la base de datos). Están en el código y tienen pruebas automatizadas; cada uno tiene su documento con el problema, la justificación, los componentes y los beneficios.
+| Ruta | Responsabilidad |
+|---|---|
+| [frontend/index.html](frontend/index.html) y [frontend/css](frontend/css/) | Estructura y presentación |
+| [frontend/assets](frontend/assets/) | Favicon y fotografías locales |
+| [frontend/js/main.js](frontend/js/main.js) | Carga inicial y navegación por hash |
+| [frontend/js/componentes](frontend/js/componentes/) | Menú, vistas, controles, tarjetas y diálogos |
+| [frontend/js/modelos](frontend/js/modelos/) | Modelos y validación de animales, noticias y eventos |
+| [frontend/js/servicios](frontend/js/servicios/) | Datos de ejemplo, repositorio, creación, ordenamiento, búsqueda y rutas |
+| [frontend/js/utilidades](frontend/js/utilidades/) | DOM, iconos, fechas y validaciones compartidas |
+| [src](src/) | Prototipo Java de consola |
+| [tests](tests/) y [docs](docs/) | Pruebas, documentación y diagramas |
 
-| Patrón | Dónde está | Qué resuelve |
+### Patrones de diseño
+
+| Patrón | Implementación | Propósito |
 |---|---|---|
-| **Singleton** | `frontend/js/servicios/RepositorioContenido.js` | Una única fuente de datos compartida por todas las vistas. [Detalle](docs/patrones/singleton.md) |
-| **Factory Method** | `frontend/js/servicios/CreadorContenido.js` | Crear animales, noticias y eventos sin condicionales por tipo y con validación centralizada. [Detalle](docs/patrones/factory-method.md) |
-| **Strategy** | `frontend/js/servicios/estrategiasOrden.js` | Cambiar el criterio de ordenamiento en tiempo de ejecución. [Detalle](docs/patrones/strategy.md) |
+| Singleton | [RepositorioContenido.js](frontend/js/servicios/RepositorioContenido.js) | `obtenerInstancia()` entrega el repositorio que comparte el frontend. [Detalle](docs/patrones/singleton.md) |
+| Factory Method | [CreadorContenido.js](frontend/js/servicios/CreadorContenido.js) | El repositorio selecciona un creador por tipo. `crear()` valida la entrada y delega en `crearProducto()` para construir el modelo correspondiente. [Detalle](docs/patrones/factory-method.md) |
+| Strategy | [estrategiasOrden.js](frontend/js/servicios/estrategiasOrden.js) | `OrganizadorLista` aplica el criterio seleccionado en tiempo de ejecución y devuelve una lista ordenada sin alterar la original. [Detalle](docs/patrones/strategy.md) |
 
-Diagramas de los patrones: [docs/diagramas/patrones.md](docs/diagramas/patrones.md).
+Los modelos validan sus campos, el repositorio informa los registros inválidos que omite y las vistas construyen el DOM con elementos y nodos de texto. Los componentes de búsqueda, orden y diálogo se reutilizan y los algoritmos se prueban de forma aislada.
 
-**Otras decisiones**
-- Los modelos `Animal`, `Noticia` y `Evento` siguen los atributos y métodos del diagrama de clases UML.
-- Separación de responsabilidades: modelos (datos y validación), servicios (lógica y patrones), componentes (interfaz) y utilidades (reutilizables).
-- La interfaz se construye con `createElement` y nodos de texto, no con `innerHTML` sobre los datos, para evitar inyección de HTML.
-- Los datos son de ejemplo (`datosIniciales.js`); más adelante vendrán del backend.
+## Instalación y ejecución
 
-## Instrucciones de ejecución
+Necesitas Node.js 18 o superior y npm. Cuando la rama de entrega esté publicada, puedes clonar el proyecto así.
+
 ```bash
-git clone https://github.com/alexanderclaer/Grupo2_AquaGuadian.git
+git clone --branch entrega-final https://github.com/alexanderclaer/Grupo2_AquaGuadian.git
 cd Grupo2_AquaGuadian
 ```
 
-**Página web.** Los módulos de JavaScript requieren un servidor local (no funcionan con doble clic):
-- En VS Code: Se instala la extensión **Live Server**, abre `frontend/index.html` y pulsa "Go Live"; o bien
-- con Node.js: `qnpx serve frontend` y abre la dirección que muestre.
+Si ya tienes una copia del proyecto, ejecuta uno de estos comandos desde su raíz y abre la dirección local que indique el servidor.
 
-**Pruebas automatizadas** (Node.js 18 o superior):
+```bash
+npm start
+# Equivalente:
+npx serve frontend
+```
+
+El proyecto no requiere `npm install`. En la primera ejecución, `npx` puede necesitar acceso a Internet para descargar `serve`. También puedes servir la carpeta `frontend` con un servidor estático disponible. Los módulos necesitan una URL HTTP para cargar correctamente.
+
+Para ejecutar por separado el prototipo de consola con un JDK:
+
+```bash
+javac -encoding UTF-8 src/*.java
+java -cp src Main
+```
+
+## Pruebas
+
 ```bash
 npm test
 ```
 
-**Primera versión en Java (consola):**
-```bash
-javac src/*.java && java -cp src Main
-```
+La suite contiene 43 pruebas sobre los modelos, los patrones, las vistas, el acceso de demostración y la persistencia del catálogo. Consulta los [resultados de validación](docs/pruebas-finales.md) y el [guion para la presentación](docs/guion-presentacion.md).
 
-## Integrantes del equipo
-- Alexander Molina
-- David Saavedra
-- Juan Cortes
+## Acceso de demostración
 
-## Estado actual del proyecto
-Segunda entrega: la página principal funciona con contenido de ejemplo, aplica dos patrones de diseño y cuenta con 29 pruebas automatizadas. El código de la primera entrega en Java se conserva y basandonos en que era un boceto, prácticamente una ejemplo, no está integrado con la página web.
+Abre **Iniciar sesión** en el menú. Para probar el rol `usuario`, elige **Crear una cuenta de demostración**, usa un nombre ficticio y un correo como `visitante@example.test`, y escribe la contraseña pública `oceano-demo`. Después inicia sesión con esos datos.
 
-## Próximos avances
-- Registro e inicio de sesión y roles (módulo "Acceso al sistema").
-- Panel de administración con crear, editar y eliminar animales, noticias y eventos.
-- Backend con Spring Boot y base de datos PostgreSQL; reemplazar los datos de ejemplo por una API REST.
-- Recursos educativos e imágenes.
+Para probar el rol `admin`, inicia sesión con `admin@aquaguardian.test` y la misma contraseña pública `oceano-demo`. Esta cuenta está disponible desde el inicio. El menú muestra **Administración** con esa sesión. En **Mi cuenta**, selecciona **Cerrar sesión** para regresar a la navegación pública.
+
+Usa únicamente datos ficticios. La simulación guarda los nombres, los correos y el identificador de la sesión en `localStorage` del navegador para el origen actual. La contraseña pública se comprueba en el código y el formulario no guarda la contraseña introducida. La sesión persiste al recargar y se comparte entre pestañas del mismo origen y perfil. Puedes borrar las cuentas y la sesión eliminando los datos locales de ese sitio.
+
+## Gestión del catálogo local
+
+En **Administración**, elige **Animales**, **Eventos** o **Noticias**. Usa **Agregar** o **Editar** y guarda el formulario. **Eliminar** pide confirmación. Abre la vista pública correspondiente para consultar los cambios y recarga la página para comprobar que persisten.
+
+Cada sección parte de [datosIniciales.js](frontend/js/servicios/datosIniciales.js). Al guardar un cambio, el repositorio guarda su lista y el próximo identificador en `localStorage` bajo `aquaguardian.catalogo.v1.animal`, `aquaguardian.catalogo.v1.evento` o `aquaguardian.catalogo.v1.noticia`. Para recuperar el catálogo de ejemplo, elimina esas claves desde las herramientas del navegador y recarga. Esto descarta las modificaciones del catálogo local.
+
+## Limitaciones
+
+- El frontend funciona sin backend ni base de datos. El acceso es una simulación sin seguridad de autenticación. Los datos se pueden editar con las herramientas del navegador y quedan aislados por origen y perfil. Cada pestaña carga su vista del catálogo al recargar la página. Usa una pestaña a la vez para administrar.
+- El panel no admite cargas de archivos. Las vistas usan fotos representativas existentes o marcadores visuales.
+- El prototipo Java registra un usuario en memoria y consulta especies desde consola de forma independiente a la web.
+
+## Créditos fotográficos de noticias y eventos
+
+Las tarjetas y las fichas muestran el crédito de cada foto representativa. Las imágenes de la tabla se redujeron a 960 píxeles de ancho y se recomprimieron en JPEG. La tabla indica la licencia o el estado de derechos de cada foto.
+
+| Noticia o evento | Fotografía y autoría | Licencia o estado |
+|---|---|---|
+| Alianza con universidades para investigar | [BATS Sampling.jpg](https://commons.wikimedia.org/wiki/File:BATS_Sampling.jpg), Fritsebits | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| Un sistema de filtración que ahorra agua | [Sand filter.jpg](https://commons.wikimedia.org/wiki/File:Sand_filter.jpg), Alain Manceau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| Nuevo programa educativo para escuelas | [Touch tank at the Key West Aquarium.jpg](https://commons.wikimedia.org/wiki/File:Touch_tank_at_the_Key_West_Aquarium.jpg), Jerry Swiatek | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| Taller de conservación para familias | [Nivín. Sesión de aprendizaje con material de reciclaje.jpg](https://commons.wikimedia.org/wiki/File:Niv%C3%ADn._Sesi%C3%B3n_de_aprendizaje_con_material_de_reciclaje.jpg), Escuela de Nivín | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| Jornada de limpieza de playas | [Volunteers participate in beach debris cleanup - 52751597226.jpg](https://commons.wikimedia.org/wiki/File:Volunteers_participate_in_beach_debris_cleanup_-_52751597226.jpg), CapeHatterasNPS | Dominio público en EE. UU. |
+
+## Integrantes
+
+Alexander Molina, David Saavedra y Juan Cortes.

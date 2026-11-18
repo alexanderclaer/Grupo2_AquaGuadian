@@ -19,6 +19,6 @@ Cada tipo de contenido tiene reglas propias de validación, pero el proceso de c
 `CreadorContenido` (Creator) · `CreadorAnimal`, `CreadorNoticia`, `CreadorEvento` (Concrete Creators) · `Animal`, `Noticia`, `Evento` (Products) · `RepositorioContenido` (cliente).
 
 ## Beneficios
-- Agregar un tipo nuevo de contenido (por ejemplo, "hábitat") solo requiere un modelo y un creador nuevos.
+- Cada tipo concentra su construcción en un creador concreto. Un tipo nuevo requiere registrar su creador y conectarlo a la carga si el repositorio debe exponerlo.
 - La validación queda centralizada y reutilizada.
 - El código cliente no depende de las clases concretas.
