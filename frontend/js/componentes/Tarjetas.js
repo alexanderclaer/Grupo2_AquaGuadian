@@ -2,7 +2,7 @@ import { ETIQUETAS_ESTADO } from '../modelos/Animal.js';
 import { h } from '../utilidades/dom.js';
 import { esFechaVigente, formatearFecha, partesFecha } from '../utilidades/fechas.js';
 import { icono } from '../utilidades/iconos.js';
-import { MarcadorAnimal, MarcadorNoticia } from './Marcador.js';
+import { MarcadorAnimal, MarcadorEvento, MarcadorNoticia } from './Marcador.js';
 
 export function InsigniaEstado(estado) {
   return h('span', { clase: `insignia insignia--${estado}` }, ETIQUETAS_ESTADO[estado]);
@@ -60,6 +60,7 @@ export function TarjetaEvento(evento, { alAbrir, hoy }) {
   return h(
     'article',
     { clase: `evento${vigente ? '' : ' evento--pasado'}` },
+    MarcadorEvento(evento),
     h('div', { clase: 'evento__fecha', 'aria-hidden': 'true' }, h('span', { clase: 'evento__dia' }, dia), h('span', { clase: 'evento__mes' }, mes)),
     h(
       'div',

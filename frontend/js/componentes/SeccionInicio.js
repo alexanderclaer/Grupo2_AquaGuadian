@@ -1,4 +1,5 @@
-import { h, iniciales } from '../utilidades/dom.js';
+import { h } from '../utilidades/dom.js';
+import { FOTO_PORTADA, MedioMarino, MiniaturaAnimal } from './Marcador.js';
 import { icono } from '../utilidades/iconos.js';
 import { ORDENES_PUBLICACIONES, OrganizadorLista } from '../servicios/estrategiasOrden.js';
 import { abrirDetalleNoticia, abrirFichaAnimal } from './Fichas.js';
@@ -12,8 +13,7 @@ function Hero(animales) {
       'div',
       { clase: 'hero__contenido' },
       h('span', { clase: 'chip-hero' }, 'Parque Marino Nacional · Colombia'),
-      h('h1', { id: 'titulo-inicio' }, h('span', { clase: 'hero__logo' }, icono('olas', 30)), 'AQUAGUARDIAN'),
-      h('p', { clase: 'hero__lema' }, 'Guardianes de la vida marina'),
+      h('h1', { id: 'titulo-inicio' }, 'Guardianes de la vida marina'),
       h('p', { clase: 'hero__texto' }, 'Conoce a los animales del parque, entérate de sus historias y descubre cómo podemos proteger el océano entre todos.'),
       h(
         'div',
@@ -29,12 +29,12 @@ function Hero(animales) {
           'ul',
           { clase: 'hero__lista' },
           animales.map((animal) =>
-            h('li', {}, h('a', { href: '#animales', clase: 'mini-animal', 'aria-label': `${animal.nombre}, ${animal.especie}` }, h('span', { clase: 'mini-animal__circulo', 'aria-hidden': 'true' }, iniciales(animal.especie)), h('span', { clase: 'mini-animal__nombre' }, animal.nombre))),
+            h('li', {}, h('a', { href: '#animales', clase: 'mini-animal', 'aria-label': `${animal.nombre}, ${animal.especie}` }, MiniaturaAnimal(animal), h('span', { clase: 'mini-animal__nombre' }, animal.nombre))),
           ),
         ),
       ),
     ),
-    h('div', { clase: 'franja', 'aria-hidden': 'true' }),
+    MedioMarino(FOTO_PORTADA, { clase: 'hero__imagen', respaldo: icono('olas', 72), prioritaria: true, texto: 'Tortuga verde en Kona' }),
   );
 }
 
