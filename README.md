@@ -12,7 +12,7 @@ La información sobre especies y hábitats marinos puede estar dispersa y ser di
 - **Animales** con búsqueda por nombre, especie o zona, filtro por estado y orden por nombre o edad. Las fichas muestran hábitat, conservación, situación actual e historia.
 - **Noticias y eventos** en pestañas. Las noticias se pueden buscar por título, resumen o categoría y filtrar por categoría. Los eventos se pueden buscar por nombre, descripción o lugar y muestran si están próximos o finalizados. Ambas listas se pueden ordenar por nombre o fecha y abrir en detalle.
 - **Interfaz adaptable** con menú móvil, enlace para saltar al contenido y diálogos nativos. Las fotos locales representan especies, incluyen texto alternativo cuando aportan información y muestran su autor, fuente y licencia. Los marcadores visuales cubren imágenes ausentes o fallidas.
-- **Acceso de demostración** con registro, inicio y cierre de sesión.
+- **Acceso de demostración** con registro, inicio y cierre de sesión. El rol simulado `admin` puede gestionar animales, eventos y noticias desde el panel.
 
 ## Tecnologías y arquitectura
 
@@ -72,7 +72,7 @@ java -cp src Main
 npm test
 ```
 
-La suite contiene 35 pruebas sobre los modelos, los patrones, las vistas y el acceso de demostración. Consulta los [resultados de validación](docs/pruebas-finales.md) y el [guion para la presentación](docs/guion-presentacion.md).
+La suite contiene 43 pruebas sobre los modelos, los patrones, las vistas, el acceso de demostración y la persistencia del catálogo. Consulta los [resultados de validación](docs/pruebas-finales.md) y el [guion para la presentación](docs/guion-presentacion.md).
 
 ## Acceso de demostración
 
@@ -82,9 +82,16 @@ Para probar el rol `admin`, inicia sesión con `admin@aquaguardian.test` y la mi
 
 Usa únicamente datos ficticios. La simulación guarda los nombres, los correos y el identificador de la sesión en `localStorage` del navegador para el origen actual. La contraseña pública se comprueba en el código y el formulario no guarda la contraseña introducida. La sesión persiste al recargar y se comparte entre pestañas del mismo origen y perfil. Puedes borrar las cuentas y la sesión eliminando los datos locales de ese sitio.
 
+## Gestión del catálogo local
+
+En **Administración**, elige **Animales**, **Eventos** o **Noticias**. Usa **Agregar** o **Editar** y guarda el formulario. **Eliminar** pide confirmación. Abre la vista pública correspondiente para consultar los cambios y recarga la página para comprobar que persisten.
+
+Cada sección parte de [datosIniciales.js](frontend/js/servicios/datosIniciales.js). Al guardar un cambio, el repositorio guarda su lista y el próximo identificador en `localStorage` bajo `aquaguardian.catalogo.v1.animal`, `aquaguardian.catalogo.v1.evento` o `aquaguardian.catalogo.v1.noticia`. Para recuperar el catálogo de ejemplo, elimina esas claves desde las herramientas del navegador y recarga. Esto descarta las modificaciones del catálogo local.
+
 ## Limitaciones
 
-- El frontend funciona sin backend ni base de datos. El acceso es una simulación sin seguridad de autenticación. Los datos se pueden editar con las herramientas del navegador y quedan aislados por origen y perfil.
+- El frontend funciona sin backend ni base de datos. El acceso es una simulación sin seguridad de autenticación. Los datos se pueden editar con las herramientas del navegador y quedan aislados por origen y perfil. Cada pestaña carga su vista del catálogo al recargar la página. Usa una pestaña a la vez para administrar.
+- El panel no admite cargas de archivos. Las vistas usan fotos representativas existentes o marcadores visuales.
 - El prototipo Java registra un usuario en memoria y consulta especies desde consola de forma independiente a la web.
 
 ## Integrantes

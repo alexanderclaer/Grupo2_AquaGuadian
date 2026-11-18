@@ -30,7 +30,7 @@ function mostrarError(mensaje) {
 function iniciar() {
   const repositorio = RepositorioContenido.obtenerInstancia();
   try {
-    repositorio.cargar(DATOS_INICIALES);
+    repositorio.cargar(DATOS_INICIALES, () => window.localStorage);
   } catch (error) {
     console.error(error);
     mostrarError('No pudimos cargar el contenido del parque. Intenta recargar la página.');
@@ -53,7 +53,7 @@ function iniciar() {
     inicio: () => crearSeccionInicio(repositorio),
     animales: () => crearSeccionAnimales(repositorio),
     'noticias-eventos': () => crearSeccionNoticiasEventos(repositorio),
-    administracion: () => crearPanelAdministrador(),
+    administracion: () => crearPanelAdministrador(repositorio, () => acceso.obtenerSesion()?.rol === 'admin'),
   };
 
   function mostrarVista(mensaje) {

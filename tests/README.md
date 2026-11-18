@@ -14,3 +14,4 @@ npm test
 | `strategy.test.js` | Estrategias de orden y cambio de estrategia en el contexto |
 | `utilidades.test.js` | Búsqueda sin tildes, navegación (incluido el acceso de administrador) y fechas |
 | `acceso-demo.test.js` | Registro, inicio y cierre de sesión, roles y aislamiento del almacenamiento |
+| `catalogo-local.test.js` | Creación, edición, eliminación, persistencia y manejo de errores del catálogo |

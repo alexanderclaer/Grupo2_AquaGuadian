@@ -260,6 +260,58 @@ code { background: rgba(0, 0, 0, 0.07); padding: 1px 6px; border-radius: 5px; }
 .acceso__mensaje { color: var(--azul-900); font-weight: 600; }
 .acceso__mensaje:not(:empty) { margin-top: 16px; }
 
+/* ---------- Administración ---------- */
+.admin__aviso { margin-bottom: 20px; }
+.admin__contenido { margin-top: 18px; }
+.admin__cabecera, .admin__registro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin__cabecera h2, .admin__registro h3 { color: var(--azul-900); }
+.admin__acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.admin__registro .boton { padding: 7px 14px; }
+.admin__secundario { border-color: var(--borde); color: var(--azul-700); background: var(--superficie); }
+.admin__secundario:hover { background: var(--azul-100); }
+.admin__eliminar { background: #fde1e4; color: #9b0d1e; }
+.admin__eliminar:hover { background: #f9ced3; }
+.admin__lista { display: grid; gap: 10px; margin-top: 16px; }
+.admin__registro, .admin__formulario {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: clamp(12px, 3vw, 22px);
+  overflow-wrap: anywhere;
+}
+.admin__registro p { color: var(--suave); }
+.admin__formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.admin__ancho { grid-column: 1 / -1; }
+.admin__campo { display: grid; gap: 5px; align-content: start; font-weight: 600; }
+.admin__casilla { display: flex; align-items: center; gap: 8px; }
+.admin__campo :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--azul-500);
+  border-radius: 10px;
+  background: var(--fondo);
+  color: var(--texto);
+  font: inherit;
+  font-weight: 400;
+}
+.admin__campo textarea { resize: vertical; }
+.admin__mensaje { color: var(--azul-900); font-weight: 600; }
+.admin__mensaje:empty { margin: 0; }
+.admin__mensaje:not(:empty) { margin-top: 12px; }
+.admin__mensaje[role='alert'] { color: #9b0d1e; }
+
 /* ---------- Pie ---------- */
 .pie { background: var(--azul-900); color: rgba(255, 255, 255, 0.78); padding: 32px 20px; font-size: 0.9rem; }
 .pie__contenedor { max-width: var(--ancho); margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
@@ -281,6 +333,7 @@ code { background: rgba(0, 0, 0, 0.07); padding: 1px 6px; border-radius: 5px; }
   .menu__enlace { padding: 12px 14px; }
 }
 @media (max-width: 680px) {
+  .admin__formulario { grid-template-columns: minmax(0, 1fr); }
   .rejilla--dos { grid-template-columns: 1fr; }
   .hero { width: calc(100% - 24px); border-radius: 20px; }
   .bloque { margin-top: 36px; }

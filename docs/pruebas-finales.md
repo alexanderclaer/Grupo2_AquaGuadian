@@ -2,13 +2,15 @@
 
 Validaciones del **18 de noviembre de 2026**, en Windows con Node.js v24.21.0. La revisión de navegador se ejecutó en Microsoft Edge headless con un servidor HTTP temporal que sirvió la carpeta `frontend`.
 
-## Resultados del acceso de demostración
+## Resultados de la entrega final
 
 | Validación | Resultado |
 |---|---|
-| `npm test` | 35 aprobadas: 29 del catálogo inicial y 6 del acceso simulado. |
-| `node --check` | 34 archivos JavaScript comprobados sin errores. |
+| `npm test` | 43 aprobadas: 29 del catálogo inicial, 6 del acceso simulado y 8 de la gestión local. |
+| `node --check` | 35 archivos JavaScript comprobados sin errores. |
 | Acceso simulado | Registro, inicio y cierre de sesión, persistencia al recargar y acceso a Administración según el rol. |
+| Gestión del catálogo | Altas, ediciones, bajas con confirmación y actualización de las vistas públicas de animales, eventos y noticias. Los cambios persistieron tras recargar. |
+| Panel adaptable | Formularios comprobados a 1440, 390 y 320 px. El recorrido no registró errores de consola. |
 
 ## Resultados del catálogo inicial
 
@@ -28,7 +30,7 @@ Validaciones del **18 de noviembre de 2026**, en Windows con Node.js v24.21.0. L
 
 ## Reproducción
 
-Ejecutar `npm test` desde la raíz. Servir el frontend según las [instrucciones de instalación y ejecución](../README.md#instalación-y-ejecución). Comprobar las rutas `#inicio`, `#animales` y `#noticias-eventos`, y seguir los pasos para probar el [acceso simulado](../README.md#acceso-de-demostración). Para reproducir el respaldo de imágenes, bloquear la solicitud de una foto local y volver a cargar la vista.
+Ejecutar `npm test` desde la raíz. Servir el frontend según las [instrucciones de instalación y ejecución](../README.md#instalación-y-ejecución). Comprobar las rutas `#inicio`, `#animales` y `#noticias-eventos`, y seguir los pasos para probar el [acceso simulado](../README.md#acceso-de-demostración) y la [gestión local](../README.md#gestión-del-catálogo-local). Para reproducir el respaldo de imágenes, bloquear la solicitud de una foto local y volver a cargar la vista.
 
 ## Alcance de la validación
 
