@@ -20,6 +20,6 @@ Cada criterio de orden es un algoritmo intercambiable con la misma interfaz. Str
 `EstrategiaOrden` y sus subclases · `OrganizadorLista` (contexto) · `SeccionAnimales`, `SeccionNoticiasEventos`, `SeccionInicio` (clientes) · `SelectorOrden` (componente de interfaz).
 
 ## Beneficios
-- Agregar un criterio nuevo es agregar una clase, sin tocar las vistas.
+- Para ofrecer un criterio nuevo se agrega una estrategia a la lista de opciones de la sección correspondiente.
 - Elimina condicionales repetidos.
 - Cada algoritmo se prueba por separado.

@@ -1,17 +1,13 @@
-# Alcance implementado: navegación principal
+# Alcance de la navegación
 
-Según el diagrama UML, la navegación principal incluye:
-
-| Clase del UML | Implementación |
+| Vista | Implementación |
 |---|---|
-| `MenuPrincipal` | `frontend/js/componentes/MenuPrincipal.js` y `frontend/js/servicios/navegacion.js` |
-| `SeccionAnimales` | `frontend/js/componentes/SeccionAnimales.js` (listado, búsqueda, filtro, orden y ficha) |
-| `SeccionNoticiasEventos` | `frontend/js/componentes/SeccionNoticiasEventos.js` (noticias y eventos con búsqueda, filtro y orden) |
-| `PanelAdministrador` | `frontend/js/componentes/PanelAdministrador.js` (estructura reservada; el enlace permanece oculto) |
+| Menú y rutas | [MenuPrincipal.js](../frontend/js/componentes/MenuPrincipal.js) y [navegacion.js](../frontend/js/servicios/navegacion.js) |
+| Inicio | [SeccionInicio.js](../frontend/js/componentes/SeccionInicio.js) presenta el parque, calcula cifras desde el repositorio y muestra vistas previas |
+| Animales | [SeccionAnimales.js](../frontend/js/componentes/SeccionAnimales.js) permite buscar, filtrar, ordenar y abrir fichas |
+| Noticias y eventos | [SeccionNoticiasEventos.js](../frontend/js/componentes/SeccionNoticiasEventos.js) permite alternar listas, buscar, ordenar y abrir detalles. Las noticias admiten filtro por categoría |
+| Administración | [PanelAdministrador.js](../frontend/js/componentes/PanelAdministrador.js) conserva una vista de referencia fuera de la navegación pública |
 
-## Evolución
-- **Primera versión de la navegación (prototipo):** menú y vistas con contenido pendiente de integrar.
-- **Segunda entrega:** las vistas muestran contenido real de ejemplo (6 animales, 6 noticias y 4 eventos), con búsqueda, filtros y ordenamiento, y usan los patrones Singleton, Factory Method y Strategy.
+El catálogo contiene 6 animales, 6 noticias y 4 eventos de ejemplo. Las rutas desconocidas y el acceso público a `#administracion` llevan a Inicio. La opción `esAdministrador` en [config.js](../frontend/js/config.js) es un indicador de interfaz. La autenticación, el control de acceso real y la gestión persistente están fuera del alcance de la web.
 
-## Pendiente
-Registro e inicio de sesión (módulo "Acceso al sistema"), operaciones de crear/editar/eliminar del administrador y conexión con el backend. La variable `esAdministrador` de `frontend/js/config.js` es solo una condición temporal de interfaz, no un mecanismo de seguridad.
+Consulta el [diagrama de navegación de usuario y administrador](diagramas/Diagrama_Navegacion_Usuario_Administrador.png).
