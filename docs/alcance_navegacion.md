@@ -6,8 +6,9 @@
 | Inicio | [SeccionInicio.js](../frontend/js/componentes/SeccionInicio.js) presenta el parque, calcula cifras desde el repositorio y muestra vistas previas |
 | Animales | [SeccionAnimales.js](../frontend/js/componentes/SeccionAnimales.js) permite buscar, filtrar, ordenar y abrir fichas |
 | Noticias y eventos | [SeccionNoticiasEventos.js](../frontend/js/componentes/SeccionNoticiasEventos.js) permite alternar listas, buscar, ordenar y abrir detalles. Las noticias admiten filtro por categoría |
-| Administración | [PanelAdministrador.js](../frontend/js/componentes/PanelAdministrador.js) conserva una vista de referencia fuera de la navegación pública |
+| Acceso de demostración | [SeccionAcceso.js](../frontend/js/componentes/SeccionAcceso.js) ofrece registro, inicio y cierre de sesión |
+| Administración | [PanelAdministrador.js](../frontend/js/componentes/PanelAdministrador.js) muestra una vista de referencia con el rol simulado `admin` |
 
-El catálogo contiene 6 animales, 6 noticias y 4 eventos de ejemplo. Las rutas desconocidas y el acceso público a `#administracion` llevan a Inicio. La opción `esAdministrador` en [config.js](../frontend/js/config.js) es un indicador de interfaz. La autenticación, el control de acceso real y la gestión persistente están fuera del alcance de la web.
+El catálogo inicial contiene 6 animales, 6 noticias y 4 eventos de ejemplo. Las rutas desconocidas y el acceso a `#administracion` sin una sesión simulada de rol `admin` llevan a Inicio. Consulta las [credenciales públicas de demostración](../README.md#acceso-de-demostración). La simulación usa almacenamiento local y carece de seguridad de autenticación.
 
 Consulta el [diagrama de navegación de usuario y administrador](diagramas/Diagrama_Navegacion_Usuario_Administrador.png).

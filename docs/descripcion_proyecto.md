@@ -14,11 +14,12 @@ La información sobre especies y hábitats marinos puede resultar dispersa. Aqua
 | Catálogo de animales | Búsqueda, filtro, ordenamiento y fichas con estado, hábitat e historia |
 | Noticias y eventos | Listas con búsqueda y orden, filtro de categorías para noticias y detalles en diálogo |
 | Datos y reglas | Modelos validados, repositorio local y estrategias de ordenamiento |
-| Panel de referencia | Vista reservada que describe operaciones administrativas pendientes |
+| Acceso de demostración | Registro, inicio y cierre de sesión local con roles `usuario` y `admin` |
+| Panel de administración | Vista de referencia para el rol simulado `admin` |
 
 ## Tecnologías
 
-La web utiliza HTML, CSS y JavaScript con módulos ES y datos locales de ejemplo. Las pruebas se ejecutan con Node.js y `node:test`. El código Java en `src/` conserva un prototipo de consola independiente. Autenticación web, persistencia y backend están fuera del alcance de la aplicación entregada.
+La web utiliza HTML, CSS y JavaScript con módulos ES y datos locales de ejemplo. El navegador guarda las cuentas ficticias y la sesión. La autenticación real y el backend quedan pendientes. Las pruebas se ejecutan con Node.js y `node:test`. El código Java en `src/` conserva un prototipo de consola independiente.
 
 ## Patrones y recursos
 

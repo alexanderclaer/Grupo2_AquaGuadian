@@ -1,8 +1,16 @@
 # Pruebas finales de AquaGuardian
 
-Validación del **18 de noviembre de 2026**, en Windows con Node.js v24.21.0. La revisión de navegador se ejecutó en Microsoft Edge headless con un servidor HTTP temporal que sirvió la carpeta `frontend`.
+Validaciones del **18 de noviembre de 2026**, en Windows con Node.js v24.21.0. La revisión de navegador se ejecutó en Microsoft Edge headless con un servidor HTTP temporal que sirvió la carpeta `frontend`.
 
-## Resultados
+## Resultados del acceso de demostración
+
+| Validación | Resultado |
+|---|---|
+| `npm test` | 35 aprobadas: 29 del catálogo inicial y 6 del acceso simulado. |
+| `node --check` | 34 archivos JavaScript comprobados sin errores. |
+| Acceso simulado | Registro, inicio y cierre de sesión, persistencia al recargar y acceso a Administración según el rol. |
+
+## Resultados del catálogo inicial
 
 | Validación | Ejecución | Resultado |
 |---|---|---|
@@ -20,8 +28,8 @@ Validación del **18 de noviembre de 2026**, en Windows con Node.js v24.21.0. La
 
 ## Reproducción
 
-Ejecutar `npm test` desde la raíz. Servir el frontend según las [instrucciones de ejecución](../README.md#ejecución) y comprobar las rutas `#inicio`, `#animales` y `#noticias-eventos` con las herramientas de desarrollo del navegador. Para reproducir el respaldo, bloquear la solicitud de una foto local y volver a cargar la vista.
+Ejecutar `npm test` desde la raíz. Servir el frontend según las [instrucciones de instalación y ejecución](../README.md#instalación-y-ejecución). Comprobar las rutas `#inicio`, `#animales` y `#noticias-eventos`, y seguir los pasos para probar el [acceso simulado](../README.md#acceso-de-demostración). Para reproducir el respaldo de imágenes, bloquear la solicitud de una foto local y volver a cargar la vista.
 
-## Alcance y pendientes
+## Alcance de la validación
 
-La revisión de escritorio y móvil se hizo por tamaños de ventana en Edge, sin dispositivos físicos. El prototipo Java de consola queda fuera de esta validación. La carpeta de trabajo carece de metadatos de Git, por lo que no fue posible contrastar los cambios con el historial ni listar cambios sin confirmar.
+La revisión de escritorio y móvil se hizo por tamaños de ventana en Edge. Las pruebas se centran en la aplicación web.

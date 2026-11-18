@@ -7,11 +7,11 @@ import { vistasVisibles } from '../servicios/navegacion.js';
  * mostrarMenu() -> el elemento <header> con los enlaces de las vistas visibles.
  * marcarActiva(id) -> resalta la vista actual.
  */
-export function crearMenuPrincipal({ nombreApp, esAdministrador }) {
+export function crearMenuPrincipal({ nombreApp, ...opciones }) {
   const enlaces = new Map();
   const lista = h('ul', { clase: 'menu__lista', id: 'menu-lista' });
 
-  for (const vista of vistasVisibles({ esAdministrador })) {
+  for (const vista of vistasVisibles(opciones)) {
     const enlace = h('a', {
       clase: 'menu__enlace',
       href: `#${vista.id}`,
