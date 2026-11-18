@@ -17,9 +17,9 @@ export function crearPanelAdministrador() {
     'section',
     { clase: 'pagina' },
     EncabezadoSeccion({
-      etiqueta: 'Área restringida',
+      etiqueta: 'Vista de referencia',
       titulo: 'Panel de administración',
-      descripcion: 'Espacio para gestionar el contenido de AquaGuardian.',
+      descripcion: 'La gestión de contenido está pendiente. Las tarjetas describen las operaciones previstas.',
     }),
     h(
       'div',
@@ -28,6 +28,5 @@ export function crearPanelAdministrador() {
         h('article', { clase: 'tarjeta tarjeta--simple' }, h('div', { clase: 'icono-caja' }, icono(nombreIcono, 24)), h('h3', { clase: 'tarjeta__titulo' }, titulo), h('p', { clase: 'tarjeta__texto' }, texto)),
       ),
     ),
-    h('p', { clase: 'aviso' }, 'Las operaciones de gestión se integrarán con el módulo de acceso al sistema.'),
   );
 }

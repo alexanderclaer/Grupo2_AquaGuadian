@@ -12,7 +12,13 @@ export function crearMenuPrincipal({ nombreApp, esAdministrador }) {
   const lista = h('ul', { clase: 'menu__lista', id: 'menu-lista' });
 
   for (const vista of vistasVisibles({ esAdministrador })) {
-    const enlace = h('a', { clase: 'menu__enlace', href: `#${vista.id}` }, icono(vista.icono, 17), vista.etiqueta);
+    const enlace = h('a', {
+      clase: 'menu__enlace',
+      href: `#${vista.id}`,
+      enClick: () => {
+        if (enlace.getAttribute('aria-current') === 'page') alternar(true);
+      },
+    }, icono(vista.icono, 17), vista.etiqueta);
     enlaces.set(vista.id, enlace);
     lista.append(h('li', {}, enlace));
   }

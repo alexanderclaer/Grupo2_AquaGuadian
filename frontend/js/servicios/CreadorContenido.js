@@ -52,9 +52,8 @@ const CREADORES = Object.freeze({
 
 /** Devuelve el creador adecuado para un tipo de contenido. */
 export function obtenerCreador(tipo) {
-  const creador = CREADORES[tipo];
-  if (!creador) {
+  if (!Object.hasOwn(CREADORES, tipo)) {
     throw new ErrorValidacion(`Tipo de contenido desconocido: "${tipo}".`);
   }
-  return creador;
+  return CREADORES[tipo];
 }

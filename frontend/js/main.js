@@ -12,6 +12,13 @@ import { h } from './utilidades/dom.js';
 const contenedor = document.getElementById('contenido');
 const zonaMenu = document.getElementById('zona-menu');
 
+// El salto al contenido no debe cambiar la ruta reservada para las vistas.
+document.querySelector('.saltar').addEventListener('click', (evento) => {
+  evento.preventDefault();
+  contenedor.focus();
+  contenedor.scrollIntoView();
+});
+
 function mostrarError(mensaje) {
   contenedor.replaceChildren(
     h('div', { clase: 'pagina' }, h('p', { clase: 'aviso aviso--error', role: 'alert' }, mensaje)),
