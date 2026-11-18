@@ -94,6 +94,16 @@ Cada sección parte de [datosIniciales.js](frontend/js/servicios/datosIniciales.
 - El panel no admite cargas de archivos. Las vistas usan fotos representativas existentes o marcadores visuales.
 - El prototipo Java registra un usuario en memoria y consulta especies desde consola de forma independiente a la web.
 
+## Créditos fotográficos de las noticias
+
+Las tarjetas y las fichas muestran el crédito de cada foto representativa. Las tres imágenes de la tabla se redujeron a 960 píxeles de ancho y se recomprimieron en JPEG. Las copias locales se distribuyen bajo las licencias indicadas.
+
+| Noticia | Fotografía y autoría | Licencia |
+|---|---|---|
+| Alianza con universidades para investigar | [BATS Sampling.jpg](https://commons.wikimedia.org/wiki/File:BATS_Sampling.jpg), Fritsebits | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| Un sistema de filtración que ahorra agua | [Sand filter.jpg](https://commons.wikimedia.org/wiki/File:Sand_filter.jpg), Alain Manceau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| Nuevo programa educativo para escuelas | [Touch tank at the Key West Aquarium.jpg](https://commons.wikimedia.org/wiki/File:Touch_tank_at_the_Key_West_Aquarium.jpg), Jerry Swiatek | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+
 ## Integrantes
 
 Alexander Molina, David Saavedra y Juan Cortes.

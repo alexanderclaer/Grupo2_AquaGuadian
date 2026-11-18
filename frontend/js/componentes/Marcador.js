@@ -27,7 +27,17 @@ const POR_ESPECIE = new Map([
   ['león marino de california', leon],
 ]);
 
-const NOTICIAS = new Map([[1, pinguino], [2, FOTO_PORTADA], [4, leon]]);
+const NOTICIAS = new Map([
+  [1, pinguino],
+  [2, FOTO_PORTADA],
+  [3, foto('educacion-marina', 'Dos niños observan una concha junto al estanque táctil del acuario de Key West',
+    'Touch_tank_at_the_Key_West_Aquarium.jpg', 'Jerry Swiatek', 'BY 2.0')],
+  [4, leon],
+  [5, foto('filtracion-de-agua', 'Tanques de filtración con arena en una planta de tratamiento de agua',
+    'Sand_filter.jpg', 'Alain Manceau', 'BY-SA 3.0')],
+  [6, foto('investigacion-marina', 'Equipo para tomar muestras de agua oceánica a bordo del buque Atlantic Explorer',
+    'BATS_Sampling.jpg', 'Fritsebits', 'BY-SA 4.0')],
+]);
 const EVENTOS = new Map([[1, medusa], [4, FOTO_PORTADA]]);
 
 function agregarImagen(marco, datos, respaldo, { prioritaria = false, alt = datos.alt, credito } = {}) {
