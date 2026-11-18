@@ -38,7 +38,14 @@ const NOTICIAS = new Map([
   [6, foto('investigacion-marina', 'Equipo para tomar muestras de agua oceánica a bordo del buque Atlantic Explorer',
     'BATS_Sampling.jpg', 'Fritsebits', 'BY-SA 4.0')],
 ]);
-const EVENTOS = new Map([[1, medusa], [4, FOTO_PORTADA]]);
+const EVENTOS = new Map([
+  [1, medusa],
+  [2, foto('taller-conservacion', 'Estudiantes elaboran manualidades con materiales reutilizados en la Escuela de Nivín',
+    'Niv%C3%ADn._Sesi%C3%B3n_de_aprendizaje_con_material_de_reciclaje.jpg', 'Escuela de Nivín', 'BY-SA 4.0')],
+  [3, foto('limpieza-de-playas', 'Dos voluntarios con chalecos sostienen una bolsa de residuos durante una limpieza de playa',
+    'Volunteers_participate_in_beach_debris_cleanup_-_52751597226.jpg', 'CapeHatterasNPS', 'Dominio público en EE. UU.')],
+  [4, FOTO_PORTADA],
+]);
 
 function agregarImagen(marco, datos, respaldo, { prioritaria = false, alt = datos.alt, credito } = {}) {
   const imagen = h('img', {

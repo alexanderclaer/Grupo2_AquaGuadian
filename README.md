@@ -94,15 +94,17 @@ Cada sección parte de [datosIniciales.js](frontend/js/servicios/datosIniciales.
 - El panel no admite cargas de archivos. Las vistas usan fotos representativas existentes o marcadores visuales.
 - El prototipo Java registra un usuario en memoria y consulta especies desde consola de forma independiente a la web.
 
-## Créditos fotográficos de las noticias
+## Créditos fotográficos de noticias y eventos
 
-Las tarjetas y las fichas muestran el crédito de cada foto representativa. Las tres imágenes de la tabla se redujeron a 960 píxeles de ancho y se recomprimieron en JPEG. Las copias locales se distribuyen bajo las licencias indicadas.
+Las tarjetas y las fichas muestran el crédito de cada foto representativa. Las imágenes de la tabla se redujeron a 960 píxeles de ancho y se recomprimieron en JPEG. La tabla indica la licencia o el estado de derechos de cada foto.
 
-| Noticia | Fotografía y autoría | Licencia |
+| Noticia o evento | Fotografía y autoría | Licencia o estado |
 |---|---|---|
 | Alianza con universidades para investigar | [BATS Sampling.jpg](https://commons.wikimedia.org/wiki/File:BATS_Sampling.jpg), Fritsebits | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Un sistema de filtración que ahorra agua | [Sand filter.jpg](https://commons.wikimedia.org/wiki/File:Sand_filter.jpg), Alain Manceau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | Nuevo programa educativo para escuelas | [Touch tank at the Key West Aquarium.jpg](https://commons.wikimedia.org/wiki/File:Touch_tank_at_the_Key_West_Aquarium.jpg), Jerry Swiatek | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| Taller de conservación para familias | [Nivín. Sesión de aprendizaje con material de reciclaje.jpg](https://commons.wikimedia.org/wiki/File:Niv%C3%ADn._Sesi%C3%B3n_de_aprendizaje_con_material_de_reciclaje.jpg), Escuela de Nivín | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| Jornada de limpieza de playas | [Volunteers participate in beach debris cleanup - 52751597226.jpg](https://commons.wikimedia.org/wiki/File:Volunteers_participate_in_beach_debris_cleanup_-_52751597226.jpg), CapeHatterasNPS | Dominio público en EE. UU. |
 
 ## Integrantes
 
