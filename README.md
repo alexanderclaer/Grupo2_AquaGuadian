@@ -72,7 +72,7 @@ java -cp src Main
 npm test
 ```
 
-La suite contiene 43 pruebas sobre los modelos, los patrones, las vistas, el acceso de demostración y la persistencia del catálogo. Consulta los [resultados de validación](docs/pruebas-finales.md) y el [guion para la presentación](docs/guion-presentacion.md).
+La suite contiene 48 pruebas sobre los modelos, los patrones, las vistas, el acceso de demostración y la persistencia del catálogo. Consulta los [resultados de validación](docs/pruebas-finales.md) y el [guion para la presentación](docs/guion-presentacion.md).
 
 ## Acceso de demostración
 
@@ -81,6 +81,10 @@ Abre **Iniciar sesión** en el menú. Para probar el rol `usuario`, elige **Crea
 Para probar el rol `admin`, inicia sesión con `admin@aquaguardian.test` y la misma contraseña pública `oceano-demo`. Esta cuenta está disponible desde el inicio. El menú muestra **Administración** con esa sesión. En **Mi cuenta**, selecciona **Cerrar sesión** para regresar a la navegación pública.
 
 Usa únicamente datos ficticios. La simulación guarda los nombres, los correos y el identificador de la sesión en `localStorage` del navegador para el origen actual. La contraseña pública se comprueba en el código y el formulario no guarda la contraseña introducida. La sesión persiste al recargar y se comparte entre pestañas del mismo origen y perfil. Puedes borrar las cuentas y la sesión eliminando los datos locales de ese sitio.
+
+## Animales favoritos y saludo
+
+Con una sesión iniciada, el menú muestra un saludo («Hola, Ana», o «Hola, administrador» para la cuenta administrativa). En **Animales** aparece un corazón en cada tarjeta para marcar favoritos y el filtro **Mis favoritos**. Cada cuenta tiene su propia lista, que se guarda en `localStorage` bajo `aquaguardian.favoritos.v1` y persiste al recargar. Los visitantes sin sesión no ven el corazón ni el filtro.
 
 ## Gestión del catálogo local
 
